@@ -1,0 +1,29 @@
+
+<h1>Agregar Curso</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="agregarCurso()">
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field class="col-md-6">
+            <mat-label>Comision</mat-label>
+            <input type="text" matInput formControlName="comision">
+        </mat-form-field>
+
+        <mat-form-field class="col-md-6">
+            
+        </mat-form-field>
+
+        <mat-form-field class="col-md-6">
+            <mat-label>Inscripcion Abierta</mat-label>
+            <input type="text" matInput formControlName="inscripcionAbierta">
+        </mat-form-field>
+
+        <div class="col-md-6">
+            <button type="submit">Agregar curso</button>
+        </div>
+    </div>
+</form>

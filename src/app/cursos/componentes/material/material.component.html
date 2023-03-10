@@ -1,0 +1,86 @@
+<h4 class="tituloh4" appFontsizeEstilo>Cursos</h4>
+
+
+<table mat-table [dataSource]="dataSource">
+    <!--Nombre-->
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>
+            Nombre
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.nombre}}
+        </td>
+    </ng-container>
+    <!--Comision-->
+    <ng-container matColumnDef="comision">
+        <th mat-header-cell *matHeaderCellDef>
+            Comision
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.comision}}
+        </td>
+    </ng-container>
+    <!--Profesor-->
+    <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef>
+            Profesor
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.profesor.nombre}}
+        </td>
+    </ng-container>
+    <!--Inscripcion Abierta-->
+    <ng-container matColumnDef="inscripcionAbierta">
+        <th mat-header-cell *matHeaderCellDef>
+            Inscripciones
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.inscripcionAbierta | formatoInscripciones}}
+        </td>
+    </ng-container>
+    <!--Acciones-->
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>
+            Acciones
+        </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary"> Edit </button>
+            <button mat-button color="warn"> Remove </button>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+
+</table>
+
+<hr>
+<!--Cards-->
+<h4>Cards</h4>
+
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let curso of cursos">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        {{curso.nombre}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{curso.comision}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <p>Profesor: {{curso.profesor.nombre}}</p>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="abrirModal(curso)"> Edit </button>
+                    <button mat-button color="warn"> Remove </button>
+                </mat-card-actions>
+                
+            </mat-card>
+        </div>
+    </div>
+
+</div>
